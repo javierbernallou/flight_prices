@@ -1,0 +1,32 @@
+name: Flight Price Daily Ingestion
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Se ejecuta cada 6 horas
+  workflow_dispatch:       # Esto te permite darle al botón "Play" manualmente
+
+jobs:
+  ingest_data:
+    runs-on: ubuntu-latest
+    
+    # Aquí configuramos las credenciales de tu API y Base de Datos
+    env:
+      AMADEUS_API_KEY: ${{ secrets.AMADEUS_API_KEY }}
+      AMADEUS_API_SECRET: ${{ secrets.AMADEUS_API_SECRET }}
+      DB_CONNECTION_STRING: ${{ secrets.DB_CONNECTION_STRING }}
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+
+      - name: Ejecutar Ingesta
+        run: python run_pipeline.py
