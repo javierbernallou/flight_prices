@@ -29,4 +29,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Ejecutar Ingesta
-        run: python run_pipeline.py
+        run: python flight_price/run_pipeline.py
