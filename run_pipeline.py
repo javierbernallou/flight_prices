@@ -1,9 +1,12 @@
-# run_pipeline.py
+import os
 import sys
-from datetime import datetime
-from .src.ingest import run
+
+# 👇 Añadir raíz del proyecto al path
+sys.path.append(os.path.abspath("."))
+
+from flight_prices_ml.src.ingest import run
 
 if __name__ == "__main__":
-
-    print(f"Empezando desde GitHub Actions: {datetime.now()}")
+    print("Iniciando pipeline de vuelos...")
     run()
+    print("Pipeline finalizado correctamente.")
