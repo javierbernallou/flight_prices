@@ -1,6 +1,6 @@
 import requests
 from datetime import date
-from amadeus_client import get_access_token
+from flight_price_ml.src.amadeus_client import get_access_token
 import time
 
 def search_flights(origin, destination, departure_date):
