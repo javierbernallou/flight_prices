@@ -1,8 +1,7 @@
 from datetime import date,datetime, timedelta
 from sqlalchemy import text 
 from flight_price_ml.src.db import get_connection
-from flight_search import search_flights, safe_requests
-import sys
+from flight_price_ml.src.flight_search import search_flights, safe_requestsimport sys
 from flight_price_ml.src.amadeus_client import get_access_token
 
 from logger import logger
