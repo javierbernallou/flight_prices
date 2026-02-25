@@ -1,11 +1,11 @@
 import os
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
 
 API_KEY = os.getenv("AMADEUS_API_KEY")
 API_SECRET = os.getenv("AMADEUS_API_SECRET")
+
+if not API_KEY or not API_SECRET:
+    raise ValueError("Credenciales de Amadeus no configuradas")
 
 def get_access_token():
     url = "https://test.api.amadeus.com/v1/security/oauth2/token"
