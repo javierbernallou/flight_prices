@@ -5,8 +5,7 @@ from flight_price_ml.src.flight_search import search_flights, safe_requests
 import sys
 from flight_price_ml.src.amadeus_client import get_access_token
 
-from logger import logger
-
+from flight_price_ml.src.logger import logger
 
 from datetime import date
 
