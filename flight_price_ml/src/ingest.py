@@ -76,7 +76,7 @@ def run():
     if len(sys.argv) > 1:
         departure = sys.argv[1]
     else:
-        departure = "2026-05-10"
+        departure = "2026-04-7"
     ROUTES = [
     # Madrid a los principales de Londres
     ("MAD", "LHR"),  # Heathrow
