@@ -27,7 +27,7 @@ DEPARTURE_DATES = [
     "2026-04-15"
 ]
 
-RETURN_DATE = "2025-04-18"
+RETURN_DATE = "2026-04-18"
 
 
 def save_to_db(rows):
