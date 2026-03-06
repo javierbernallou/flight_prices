@@ -1,6 +1,7 @@
 from flight_price_ml.src.db import get_connection
 from flight_price_ml.src.flight_search import search_flights
 from flight_price_ml.src.logger import logger
+from sqlalchemy import text
 
 
 ORIGINS = [
@@ -34,7 +35,7 @@ def save_to_db(rows):
 
     conn = get_connection()
 
-    query = """
+    query =text( """
     INSERT INTO flights (
         origin,
         destination,
@@ -44,14 +45,14 @@ def save_to_db(rows):
         price
     )
     VALUES (
-        %(origin)s,
-        %(destination)s,
-        %(departure_date)s,
-        %(return_date)s,
-        %(airline)s,
-        %(price)s
+        :origin,
+        :destination,
+        :departure_date,
+        :return_date,
+        :airline,
+        :price
     )
-    """
+    """)
 
     for row in rows:
         conn.execute(query, row)
