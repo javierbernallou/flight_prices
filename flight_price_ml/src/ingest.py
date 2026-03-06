@@ -36,7 +36,7 @@ def save_to_db(rows):
     conn = get_connection()
 
     query =text( """
-    INSERT INTO flights (
+    INSERT INTO flight_prices_raw (
         origin,
         destination,
         departure_date,
